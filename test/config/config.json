@@ -1,0 +1,6 @@
+{
+	"app_key": "0jr750as3jczzcg",
+	"app_secret": "jqpeifmo57q5fh4",
+	"access_token": "your-key-here",
+	"redirect_url": "http://localhost:3000/dropbox_callback"
+}

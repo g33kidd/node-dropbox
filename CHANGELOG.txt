@@ -1,0 +1,5 @@
+VERSION 0.1.0:
+
+	- Initial Commit
+	- Created README
+	- Tests are passing
