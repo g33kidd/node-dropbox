@@ -57,6 +57,16 @@ describe("new", function() {
     })
   })
 
+  it("should remove a file", function(done) {
+    api.removeFile("renamed_testfile.txt", function(err, res, body) {
+      var json = JSON.parse(body);
+      res.statusCode.should.eql(200)
+      json.should.have.property("path", "/renamed_testfile.txt")
+      json.should.have.property("is_deleted", true)
+      done()
+    })
+  })
+
   it.skip("should get metadata of file", function(done) {
   })
 

@@ -54,12 +54,18 @@ The above output will be something like:
 	}
 
 ## Available API Calls:
-
+	
 	api.account(callback); // Fetches the account information.
 	api.createDir(path, callback); // Creates a directory.
 	api.removeDir(path, callback); // Deletes a directory.
 	api.createFile(path, contents, callback); // Creates a new file.
+	api.removeFile(path, callback) // Deletes a file.
 	api.moveSomething(from_path, to_path, callback); // Moves/renames a file.
+
+	// Each callback will return the error message, response, and body(json data).
+	api.account(function(error, response, body){
+		console.log(body.display_name);
+	});
 
 ## Planned Features:
 
