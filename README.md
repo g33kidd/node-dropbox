@@ -15,17 +15,16 @@ Before starting anything you need to go create your app over at: https://www.dro
 Just use the Authenticate method to generate a url for your user to go to. This will be redirected back to another page.
 
 	var node_dropbox = require('node_dropbox');
-	node_dropbox.Authenticate('key', 'secret', 'redirect_url');
-
-This will return something similar to below. You will need to redirect your user to this url.
-
-	{
-		redirect_uri: "https://www.dropbox.com/1/oauth2/authorize?client_id=<key_here>&response_type=code&redirect_uri=<redirect_url_here>"
-	}
+	node_dropbox.Authenticate('key', 'secret', 'redirect_url', function(err, url){
+		// redirect user to the url.
+		// looks like this: "https://www.dropbox.com/1/oauth2/authorize?client_id=<key_here>&response_type=code&redirect_uri=<redirect_url_here>"
+	});
 
 On the page where you redirected to, you will need to use the AccessToken method to get the users access token for api use. The redirect_url this time is only for validation, it will not need to redirect again.
 
-	access_token = node_dropbox.AccessToken('key', 'secret', 'access_code', 'redirect_url');
+	node_dropbox.AccessToken('key', 'secret', 'access_code', 'redirect_url', function(err, body) {
+		access_token = body.access_token;
+	});
 
 #### Make API Calls
 
