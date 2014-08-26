@@ -2,13 +2,33 @@ var fs      = require("fs")
 var should  = require("should")
 var node_dropbox = require('../');
 
-describe("new", function() {
+describe("Node Dropbox", function() {
   var config = JSON.parse(fs.readFileSync(__dirname + '/config/config.json'))
   var api, ref;
 
   before(function(done) {
     api = node_dropbox.api(config.access_token)
     done()
+  })
+
+  describe("#Authenticate", function() {
+
+    it("should create valid auth url", function(done) {
+      link = "https://www.dropbox.com/1/oauth2/authorize?client_id=" + config.app_key + "&response_type=code&redirect_uri=" + config.redirect_url;
+      node_dropbox.Authenticate(config.app_key, config.app_secret, config.redirect_url, function(err, url) {
+        url.should.eql(link)
+        err.should.eql("")
+        done()
+      })
+    })
+
+    it("should validate params", function(done) {
+      node_dropbox.Authenticate(config.app_key, "", config.redirect_url, function(err, url) {
+        err.should.eql("Missing client key and/or client secret key.");
+        done();
+      })
+    })
+
   })
 
   it("should get account object", function(done) {
