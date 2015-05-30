@@ -60,6 +60,8 @@ The above output will be something like:
 	api.createFile(path, contents, callback); // Creates a new file.
 	api.removeFile(path, callback) // Deletes a file.
 	api.moveSomething(from_path, to_path, callback); // Moves/renames a file.
+	api.getMetadata(path, callback) // Retrieves file and folder metadata. Can be used to list a folder's content.
+	api.getFile(path, callback) // Downloads a file.
 
 	// Each callback will return the error message, response, and body(json data).
 	api.account(function(error, response, body){
