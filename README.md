@@ -62,6 +62,7 @@ The above output will be something like:
 	api.moveSomething(from_path, to_path, callback); // Moves/renames a file.
 	api.getMetadata(path, callback) // Retrieves file and folder metadata. Can be used to list a folder's content.
 	api.getFile(path, callback) // Downloads a file.
+	api.getDelta(cursor, path, callback) // Gets changes to files and folders in a user's Dropbox.
 
 	// Each callback will return the error message, response, and body(json data).
 	api.account(function(error, response, body){
