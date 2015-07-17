@@ -14,7 +14,7 @@ Before starting anything you need to go create your app over at: https://www.dro
 
 Just use the Authenticate method to generate a url for your user to go to. This will be redirected back to another page.
 
-	var node_dropbox = require('node_dropbox');
+	var node_dropbox = require('node-dropbox');
 	node_dropbox.Authenticate('key', 'secret', 'redirect_url', function(err, url){
 		// redirect user to the url.
 		// looks like this: "https://www.dropbox.com/1/oauth2/authorize?client_id=<key_here>&response_type=code&redirect_uri=<redirect_url_here>"
