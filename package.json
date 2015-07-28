@@ -1,7 +1,7 @@
 {
   "name": "node-dropbox",
   "description": "A simple Dropbox API client for node.js",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Joshua Kidd <kidd.josh.343@gmail.com>",
   "keywords": [
     "dropbox",
